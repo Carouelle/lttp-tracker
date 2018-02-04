@@ -83,7 +83,8 @@ function canGoBeatAgahnim1(allowOutOfLogicGlitches) {
     return trackerData.items.boss11 === 1
             && (trackerData.items.lantern || allowOutOfLogicGlitches)
             && (trackerData.items.cape || trackerData.items.sword >= 2)
-            && trackerData.items.sword >= 1;
+            && trackerData.items.sword >= 1
+            && trackerData.smallkeys[11] === 2;
 }
 
 function canEnterNorthEastDarkWorld(logic, agahnimCheck, allowOutOfLogicGlitches) {
