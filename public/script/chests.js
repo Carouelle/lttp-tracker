@@ -1,7 +1,8 @@
-function Availability(glitchless = 'unavailable', owGlitches = 'unavailable', majorGlitches = 'unavailable') {
+function Availability(glitchless = 'unavailable', owGlitches = 'unavailable', majorGlitches = 'unavailable', keysanity = 'unavailable') {
     this._glitchless = glitchless;
     this._owGlitches = owGlitches;
     this._majorGlitches = majorGlitches;
+    this._keysanity = keysanity;
 
     this.getClassName = function () {
         return this[trackerOptions.mapLogic];
@@ -16,6 +17,7 @@ Object.defineProperty(Availability.prototype, 'glitchless', {
         this._glitchless = value;
         this._owGlitches = value;
         this._majorGlitches = value;
+        this._keysanity = value;
     }
 });
 
@@ -35,6 +37,15 @@ Object.defineProperty(Availability.prototype, 'majorGlitches', {
     },
     set: function (value) {
         this._majorGlitches = value;
+    }
+});
+
+Object.defineProperty(Availability.prototype, 'keysanity', {
+    get: function () {
+        return this._keysanity;
+    },
+    set: function(value) {
+        this._keysanity = value;
     }
 });
 
@@ -84,7 +95,7 @@ function canGoBeatAgahnim1(allowOutOfLogicGlitches) {
             && (trackerData.items.lantern || allowOutOfLogicGlitches)
             && (trackerData.items.cape || trackerData.items.sword >= 2)
             && trackerData.items.sword >= 1
-            && trackerData.smallkeys[11] === 2;
+            && (trackerOptions.mapLogic !== 'keysanity' || trackerData.smallkeys[11] === 2);
 }
 
 function canEnterNorthEastDarkWorld(logic, agahnimCheck, allowOutOfLogicGlitches) {
@@ -252,6 +263,9 @@ dungeons[0] = {
             }
             else {
                 availability.glitchless = 'glitchavailable';
+            }
+            if (!trackerData.bigkeys[0]) {
+                availability.keysanity = 'unavailable';
             }
         }
         return availability;
