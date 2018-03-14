@@ -588,6 +588,15 @@ function useTourneyConfigQuad() {
     });
 }
 
+function useTourneyConfigQuadBingo() {
+    firebase.database().ref('games/tourney-layout-quad-bingo/config').once('value', function(snapshot) {
+        let val = snapshot.val();
+        val.ts = 99999999999999;
+        updateConfigFromFirebase(val);
+        saveConfigToFirebase();
+    });
+}
+
 function initTracker() {
     //createItemTracker(document.getElementById('itemdiv'));
     populateMapdiv();
