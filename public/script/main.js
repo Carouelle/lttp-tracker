@@ -1,6 +1,6 @@
 
 var trackerOptions = {
-  showchests: true,
+  showchests: false,
   showbigkeys: false,
   showsmallkeys: false,
   showprizes: true,
@@ -40,13 +40,13 @@ function getCookie() {
 var cookiekeys = ['ts', 'map', 'iZoom', 'mZoom', 'mOrien', 'mPos', 'mapLogic', 'chest', 'prize', 'medal', 'label', 'items'];
 var cookieDefault = {
     ts:94,
-    map:1,
+    map:0,
     iZoom:100,
     mZoom:50,
     mOrien:0,
     mapLogic:'glitchless',
     mPos:0,
-    chest:1,
+    chest:0,
     prize:1,
     medal:1,
     label:1,
