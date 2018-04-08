@@ -535,6 +535,11 @@ function enterPasscode() {
         else {
             console.log("Added to editors successfully");
             document.getElementById("passcodeFeedback").innerHTML="Success";
+            setTimeout(function () {
+                document.getElementById("passcodeFeedback").style.visibility = "hidden";
+                document.getElementById("entryPasscodeInput").style.visibility = "hidden";
+                document.getElementById("enterPasscodeButton").style.visibility = "hidden";
+            }, 2000);
         }
     });
 }
