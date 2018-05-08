@@ -194,6 +194,10 @@ label {
     left: 0;
 }
 
+.vueTrackerTable div div {
+    vertical-align: top;
+}
+
 .chest{
     width: 24px;
     height: 24px;

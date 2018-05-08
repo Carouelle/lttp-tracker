@@ -158,6 +158,18 @@ function getConfigObject() {
     return configobj;
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+var password = getParameterByName('password');
+
 // Event of clicking a chest on the map
 function toggleChest(x){
     rootRef.child('chestsopened').child(x).set(!trackerData.chestsopened[x]);
@@ -584,9 +596,19 @@ function useTourneyConfig() {
   });
 }
 
+function usePasscode() {
+    if (password !== null) {
+        if (!document.getElementById('createRoomPanel').hidden) {
+            document.getElementById('passcodeInput').setAttribute('value', password);
+            createRoom();
+        } else {
+            document.getElementById('entryPasscodeInput').setAttribute('value', password);
+            enterPasscode();
+        }
+    }
+}
 
 function initTracker() {
-    //createItemTracker(document.getElementById('itemdiv'));
     populateMapdiv();
     populateItemconfig();
 
@@ -597,6 +619,7 @@ function initTracker() {
       trackerData.items = snapshot.val();
         updateAll();
         document.getElementById('createRoomPanel').hidden = !!trackerData.items;
+        usePasscode();
     });
     rootRef.child('dungeonchests').on('value', function(snapshot) {
         trackerData.dungeonchests = snapshot.val();
