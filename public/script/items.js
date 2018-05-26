@@ -1,5 +1,10 @@
 var defaultItemGrid = [
     [
+        "charge",
+        "ice",
+        "wave",
+        "spazer",
+        "plasma",
         "bow",
         "silvers",
         "boomerang",
@@ -9,9 +14,14 @@ var defaultItemGrid = [
         "boots",
         "glove",
         "flippers",
-        "moonpearl",
+        "moonpearl"
     ],
     [
+        "ridley",
+        "draygon",
+        "varia",
+        "gravity",
+        "morph",
         "firerod",
         "icerod",
         "bombos",
@@ -21,9 +31,14 @@ var defaultItemGrid = [
         "somaria",
         "byrna",
         "cape",
-        "mirror",
+        "mirror"
     ],
     [
+        "kraid",
+        "phantoon",
+        "bomb_sm",
+        "springball",
+        "screw",
         "bottle",
         "hammer",
         "shovel",
@@ -33,9 +48,14 @@ var defaultItemGrid = [
         "sword",
         "shield",
         "tunic",
-        "boss11",
+        "boss11"
     ],
     [
+        "ganon",
+        "motherbrain",
+        "hijump",
+        "space",
+        "speed",
         "boss0",
         "boss1",
         "boss2",
@@ -45,8 +65,8 @@ var defaultItemGrid = [
         "boss6",
         "boss7",
         "boss8",
-        "boss9",
-    ],
+        "boss9"
+    ]
 ];
 
 var itemsInit = {
@@ -96,6 +116,32 @@ var itemsInit = {
     boss9: 1,
     boss10: 1,
     boss11: 1,
+
+    charge: false,
+    ice: false,
+    wave: false,
+    spazer: false,
+    plasma: false,
+
+    varia: false,
+    gravity: false,
+    morph: false,
+
+    bomb_sm: false,
+    springball: false,
+    screw: false,
+
+    hijump: false,
+    space: false,
+    speed: false,
+
+    ridley: false,
+    phantoon: false,
+    kraid: false,
+    draygon: false,
+
+    ganon:false,
+    motherbrain:false,
 
     blank: false
 };
